@@ -1,0 +1,24 @@
+[package]
+name = "supernova-macros"
+version = "0.1.0"
+edition = { workspace = true }
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+lazy_static = { workspace = true }
+syn = "2"
+quote = "1"
+proc-macro2 = "1"
+
+[[bin]]
+name = "supernova-macros"
+path = "main.rs"
+
+[lib]
+path = "lib.rs"
+proc-macro = true
+
+[tool.maturin]
+python-source = "../../python"
+module-name = "supernova._rust_bindings.core"
